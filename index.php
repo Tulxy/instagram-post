@@ -76,13 +76,27 @@ foreach ($posts as $post) {
 
     <img src="<?= $post['img'] ?>" alt="post-photo" width="400px">
 
-    <p>❤️ <?= $post['likes'] ?></p>
+    <div class="stats">
+      <p>❤️ <?= $post['likes'] ?></p>
+      <p>💬 <?= count($post['comments']) ?></p>
+    </div>
+
     <div class="title">
       <p class="username"><?= $post['user']['name'] ?></p>
       <p> <?= $post['title'] ?> </p>
     </div>
 
-    <p>Tags: <?= implode(', ', $post['tags']) ?></p>
+    <div class="tags">
+      <?php
+      foreach ($post['tags'] as $tag) {
+        $tag = '#' . $tag;
+        ?>
+        <p><?= $tag ?> </p>
+      <?php
+      }
+      ?>
+    </div>
+
     <div><h3>Comments: </h3>
       <?php
       foreach ($post['comments'] as $comment) {
