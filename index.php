@@ -11,42 +11,47 @@ $post = [
   'likes' => 43,
   'tags' => ['php', 'laravel'],
   'comments' => [
-    ['author' => 'Tom', 'text' => 'Hello'],
-    ['author' => 'Anna', 'text' => 'Hi'],
-    ['author' => 'Mark', 'text' => 'Goodbye']
-  ]];
+    ['author' => 'Tom', 'text' => 'Hello', 'author-pfp' => 'https://images.unsplash.com/photo-1527980965255-d3b416303d12'],
+    ['author' => 'Anna', 'text' => 'Hi', 'author-pfp' => 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d'],
+    ['author' => 'Mark', 'text' => 'Goodbye', 'author-pfp' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1']
+  ],
+  'date' => '15. září'
+];
 
 $post2 = [
   'user' => [
-    'name' => 'John',
+    'name' => 'Andy',
     'pfp' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
   ],
+
   'img' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
   'title' => 'Hello Friend',
   'likes' => 2303,
   'tags' => ['php', 'laravel'],
   'comments' => [
-    ['author' => 'Tom', 'text' => 'Hello'],
-    ['author' => 'Anna', 'text' => 'Hi'],
-    ['author' => 'Mark', 'text' => 'Goodbye']
-  ]];
+    ['author' => 'Tom', 'text' => 'Hello', 'author-pfp' => 'https://images.unsplash.com/photo-1527980965255-d3b416303d12'],
+    ['author' => 'Anna', 'text' => 'Hi', 'author-pfp' => 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d'],
+    ['author' => 'Mark', 'text' => 'Goodbye', 'author-pfp' => 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1']
+  ],
+  'date' => '15. září'
+];
 
 $post3 = [
   'user' => [
-    'name' => 'John',
+    'name' => 'Jane',
     'pfp' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
   ],
-
 
   'img' => 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d',
   'title' => 'brown dog',
   'likes' => 413,
   'tags' => ['php', 'laravel'],
   'comments' => [
-    ['author' => 'Tom', 'text' => 'Hello'],
-    ['author' => 'Anna', 'text' => 'Hi'],
-    ['author' => 'Mark', 'text' => 'Goodbye']
-  ]
+    ['author' => 'Tom', 'text' => 'Hello', 'author-pfp' => 'https://images.unsplash.com/photo-1527980965255-d3b416303d12'],
+    ['author' => 'Marco', 'text' => 'Hi', 'author-pfp' => 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e'],
+    ['author' => 'Leo', 'text' => 'Goodbye', 'author-pfp' => 'https://images.unsplash.com/photo-1527980965255-d3b416303d12']
+  ],
+  'date' => '15. září'
 ];
 
 $posts = [$post, $post2, $post3];
@@ -65,6 +70,8 @@ $posts = [$post, $post2, $post3];
 </head>
 <body>
 
+<h1>Instagram 2.0</h1>
+
 <?php
 foreach ($posts as $post) {
   ?>
@@ -76,40 +83,47 @@ foreach ($posts as $post) {
 
     <img src="<?= $post['img'] ?>" alt="post-photo" width="400px">
 
-    <div class="stats">
-      <p>❤️ <?= $post['likes'] ?></p>
-      <p>💬 <?= count($post['comments']) ?></p>
-    </div>
+    <div class="post-content">
+      <div class="stats">
+        <p>❤️ <?= $post['likes'] ?></p>
+        <p>💬 <?= count($post['comments']) ?></p>
+        <p>🔁</p>
+        <p>✉️</p>
+      </div>
 
-    <div class="title">
-      <p class="username"><?= $post['user']['name'] ?></p>
-      <p> <?= $post['title'] ?> </p>
-    </div>
+      <div class="title">
+        <p class="username"><?= $post['user']['name'] ?></p>
+        <p> <?= $post['title'] ?> </p>
+      </div>
 
-    <div class="tags">
-      <?php
-      foreach ($post['tags'] as $tag) {
-        $tag = '#' . $tag;
-        ?>
-        <p><?= $tag ?> </p>
-      <?php
-      }
-      ?>
-    </div>
-
-    <div><h3>Comments: </h3>
-      <?php
-      foreach ($post['comments'] as $comment) {
-        ?>
-        <div class="comment">
-          <h4><?= $comment['author'] ?>:</h4>
-          <p><?= $comment['text'] ?></p>
-        </div>
+      <div class="tags">
         <?php
-      }
-      ?>
+        foreach ($post['tags'] as $tag) {
+          $tag = '#' . $tag;
+          ?>
+          <p><?= $tag ?> </p>
+          <?php
+        }
+        ?>
+      </div>
+
+      <div>
+        <?php
+        foreach ($post['comments'] as $comment) {
+          ?>
+          <div class="comment">
+            <img class="comment-pfp" src="<?= $comment['author-pfp'] ?>" alt="comment-pfp">
+            <h4><?= $comment['author'] ?></h4>
+            <p><?= $comment['text'] ?></p>
+          </div>
+          <?php
+        }
+        ?>
+      </div>
+
+      <p class="date"><?= $post['date'] ?> </p>
+
     </div>
-    <hr>
 
   </div>
   <?php

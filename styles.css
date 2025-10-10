@@ -2,11 +2,45 @@ body {
   background-color: #363636;
   color: #ffffff;
   font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p {
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+h2 {
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.comment-pfp {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 4px 0 4px 0;
 }
 
 .post {
-  margin-bottom: 100px;
+  margin-bottom: 5px;
+  background-color: #1a1a1a;
+  width: 400px;
 }
+
+.post-content {
+  padding: 20px;
+}
+
 
 .user-info {
   display: flex;
@@ -15,8 +49,9 @@ body {
 }
 
 .pfp {
-  width: 50px;
-  height: 50px;
+  margin-left: 10px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
 }
 
@@ -39,11 +74,16 @@ body {
   display: flex;
   gap: 10px;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .tags {
   color: #0078ff;
   display: flex;
-  gap: 10px;
+}
+
+.date {
+  margin-top: 5px;
+  color: #888888;
 }
 
