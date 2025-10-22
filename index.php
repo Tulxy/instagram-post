@@ -5,11 +5,12 @@ $post = [
     'name' => 'John',
     'pfp' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
   ],
-
-  'img' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
-  'title' => 'Hello World',
-  'likes' => 43,
-  'tags' => ['php', 'laravel'],
+  'post-info' => [
+    'img' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
+    'title' => 'Hello World',
+    'likes' => 43,
+    'tags' => ['php', 'laravel'],
+  ],
   'comments' => [
     ['author' => 'Tom', 'text' => 'Hello', 'author-pfp' => 'https://images.unsplash.com/photo-1527980965255-d3b416303d12'],
     ['author' => 'Anna', 'text' => 'Hi', 'author-pfp' => 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d'],
@@ -23,11 +24,12 @@ $post2 = [
     'name' => 'Andy',
     'pfp' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
   ],
-
-  'img' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
-  'title' => 'Hello Friend',
-  'likes' => 2303,
-  'tags' => ['php', 'laravel'],
+  'post-info' => [
+    'img' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
+    'title' => 'Hello Friend',
+    'likes' => 2303,
+    'tags' => ['php', 'laravel'],
+  ],
   'comments' => [
     ['author' => 'Tom', 'text' => 'Hello', 'author-pfp' => 'https://images.unsplash.com/photo-1527980965255-d3b416303d12'],
     ['author' => 'Anna', 'text' => 'Hi', 'author-pfp' => 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d'],
@@ -41,11 +43,12 @@ $post3 = [
     'name' => 'Jane',
     'pfp' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
   ],
-
-  'img' => 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d',
-  'title' => 'brown dog',
-  'likes' => 413,
-  'tags' => ['php', 'laravel'],
+  'post-info' => [
+    'img' => 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d',
+    'title' => 'brown dog',
+    'likes' => 413,
+    'tags' => ['php', 'laravel'],
+  ],
   'comments' => [
     ['author' => 'Tom', 'text' => 'Hello', 'author-pfp' => 'https://images.unsplash.com/photo-1527980965255-d3b416303d12'],
     ['author' => 'Marco', 'text' => 'Hi', 'author-pfp' => 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e'],
@@ -54,6 +57,52 @@ $post3 = [
   'date' => '15. září'
 ];
 
+$story1 = [
+  'user' => [
+    'img' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
+    'name' => 'John',
+  ]
+];
+
+$story2 = [
+  'user' => [
+    'img' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
+    'name' => 'John',
+  ]
+];
+
+$story3 = [
+  'user' => [
+    'img' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
+    'name' => 'John',
+  ]
+];
+
+$story4 = [
+  'user' => [
+    'img' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
+    'name' => 'John',
+  ]
+];
+
+
+$story5 = [
+  'user' => [
+    'img' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
+    'name' => 'John',
+  ]
+];
+
+
+$story6 = [
+  'user' => [
+    'img' => 'https://images.unsplash.com/photo-1507149833265-60c372daea22',
+    'name' => 'John',
+  ]
+];
+
+
+$stories = [$story1, $story2, $story3, $story4, $story5, $story6];
 $posts = [$post, $post2, $post3];
 
 ?>
@@ -70,65 +119,48 @@ $posts = [$post, $post2, $post3];
 </head>
 <body>
 
-<h1>Instagram 2.0</h1>
+<aside>
+  <h1>Instagram 2.0</h1>
+  <ul>
+    <li><span>🏠</span>Domů</li>
+    <li><span>🔎</span>Hledat</li>
+    <li><span>🧭</span>Objevujte</li>
+    <li><span>▶️</span>Reels</li>
+    <li><span>✉️</span>Zprávy</li>
+    <li><span>❤️</span>Upozornění</li>
+    <li><span>➕</span>Vytvořit</li>
+    <li><span>👨‍💻</span>Profil</li>
+  </ul>
+</aside>
 
-<?php
-foreach ($posts as $post) {
-  ?>
-  <div class="post">
-    <div class="user-info">
-      <img class="pfp" src="<?= $post['user']['pfp'] ?>" alt="user-pfp">
-      <h2> <?= $post['user']['name'] ?></h2>
-    </div>
+<section class="posts">
 
-    <img src="<?= $post['img'] ?>" alt="post-photo" width="400px">
-
-    <div class="post-content">
-      <div class="stats">
-        <p>❤️ <?= $post['likes'] ?></p>
-        <p>💬 <?= count($post['comments']) ?></p>
-        <p>🔁</p>
-        <p>✉️</p>
+  <div class="stories">
+    <?php
+    foreach ($stories as $story) {
+      ?>
+      <div class="story">
+        <img src="<?= $story['user']['img'] ?>" alt="pfp" width="80" height="80">
+        <h3><?= $story['user']['name'] ?> </h3>
       </div>
-
-      <div class="title">
-        <p class="username"><?= $post['user']['name'] ?></p>
-        <p> <?= $post['title'] ?> </p>
-      </div>
-
-      <div class="tags">
-        <?php
-        foreach ($post['tags'] as $tag) {
-          $tag = '#' . $tag;
-          ?>
-          <p><?= $tag ?> </p>
-          <?php
-        }
-        ?>
-      </div>
-
-      <div>
-        <?php
-        foreach ($post['comments'] as $comment) {
-          ?>
-          <div class="comment">
-            <img class="comment-pfp" src="<?= $comment['author-pfp'] ?>" alt="comment-pfp">
-            <h4><?= $comment['author'] ?></h4>
-            <p><?= $comment['text'] ?></p>
-          </div>
-          <?php
-        }
-        ?>
-      </div>
-
-      <p class="date"><?= $post['date'] ?> </p>
-
-    </div>
-
+      <?php
+    }
+    ?>
   </div>
+
+
   <?php
-}
-?>
+  foreach ($posts as $post) {
+    ?>
+    <div class="post">
+      <?php include 'user-info.php'; ?>
+      <?php include 'post-content.php'; ?>
+    </div>
+    <?php
+  }
+  ?>
+</section>
+
 
 </body>
 </html>
